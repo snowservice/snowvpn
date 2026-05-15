@@ -9,9 +9,9 @@
 
 <br/>
 
-[![Windows](https://img.shields.io/badge/Windows-download-00d4d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
-[![Android](https://img.shields.io/badge/Android-download-00d4d4?style=for-the-badge&logo=android&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
-[![Release](https://img.shields.io/github/v/release/snowservice/snowvpn?style=for-the-badge&label=Latest&color=00d4d4)](https://github.com/snowservice/snowvpn/releases/latest)
+[![Windows](https://img.shields.io/github/v/release/snowservice/snowvpn?filter=windows-*&style=for-the-badge&logo=windows&logoColor=white&label=Windows&color=00d4d4)](https://github.com/snowservice/snowvpn/releases?q=windows)
+[![Android](https://img.shields.io/github/v/release/snowservice/snowvpn?filter=android-*&style=for-the-badge&logo=android&logoColor=white&label=Android&color=00d4d4)](https://github.com/snowservice/snowvpn/releases?q=android)
+[![GitHub Pages](https://img.shields.io/badge/Website-Live-00d4d4?style=for-the-badge&logo=github&logoColor=white)](https://snowservice.github.io/snowvpn)
 [![GitHub Pages](https://img.shields.io/badge/Website-Live-00d4d4?style=for-the-badge&logo=github&logoColor=white)](https://snowservice.github.io/snowvpn)
 
 <br/>
