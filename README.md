@@ -11,6 +11,7 @@
 
 [![Windows](https://img.shields.io/badge/Windows-v5.0.1-00d4d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
 [![Android](https://img.shields.io/badge/Android-v1.5.3-00d4d4?style=for-the-badge&logo=android&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
+[![Release](https://img.shields.io/github/v/release/snowservice/snowvpn?style=for-the-badge&label=Latest&color=00d4d4)](https://github.com/snowservice/snowvpn/releases/latest)
 [![GitHub Pages](https://img.shields.io/badge/Website-Live-00d4d4?style=for-the-badge&logo=github&logoColor=white)](https://snowservice.github.io/snowvpn)
 
 <br/>
@@ -61,26 +62,33 @@
 ## ✨ Возможности / Features
 
 ### 🖥️ Windows
-| | Функция | Описание |
-|--|---------|----------|
-| ⚡ | **Быстрое подключение** | Один клик — и ты в сети |
-| 🌍 | **30+ стран** | Серверы в Европе, Азии и СНГ |
-| 🔀 | **VPN по приложениям** | Готовые правила, остальные приложения работают напрямую |
-| ✨ | **AI-маршрутизация** | Gemini и Google AI через выделенный сервер, включается в настройках |
+| | RU | EN |
+|--|----|----|
+| ⚡ | **Быстрое подключение** — один клик и ты в сети | **Fast connection** — one click and you're online |
+| 🌍 | **30+ стран** — серверы в Европе, Азии и СНГ | **30+ countries** — servers in Europe, Asia and CIS |
+| 🔀 | **VPN по приложениям** — готовые правила, остальные работают напрямую | **Per-app VPN** — preset rules, other apps connect directly |
+| ✨ | **AI-маршрутизация** — функция в настройках, позволяет использовать Gemini и AI Studio с любого сервера | **AI routing** — setting that lets you use Gemini and AI Studio from any server |
 
 ### 🤖 Android
-| | Функция | Описание |
-|--|---------|----------|
-| ⚡ | **Быстрое подключение** | Одно нажатие — и ты в сети |
-| 🌍 | **30+ стран** | Серверы в Европе, Азии и СНГ |
-| 🔀 | **VPN по приложениям** | Выбери какие приложения идут через VPN |
-| 🇷🇺 | **Обход РФ трафика** | Российские сайты напрямую, иностранные через VPN |
-| ✨ | **AI-маршрутизация** | 5 нажатий на настройки → сервер с Gemini (рекомендуем Турцию) |
+| | RU | EN |
+|--|----|----|
+| ⚡ | **Быстрое подключение** — одно нажатие и ты в сети | **Fast connection** — one tap and you're online |
+| 🌍 | **30+ стран** — серверы в Европе, Азии и СНГ | **30+ countries** — servers in Europe, Asia and CIS |
+| 🔀 | **VPN по приложениям** — выбери какие приложения идут через VPN | **Per-app VPN** — choose which apps go through VPN |
+| 🇷🇺 | **Обход РФ трафика** — российские сайты напрямую, иностранные через VPN | **RU bypass** — Russian sites directly, foreign ones through VPN |
+| ✨ | **AI-маршрутизация** — 5 нажатий на настройки → выбери сервер Gemini (рекомендуем Турцию) | **AI routing** — tap settings 5 times → choose a Gemini server (Turkey recommended) |
 
 ---
 
 <div align="center">
 
-Made with ❄️ by **SnowVPN**
+**Нравится проект? Поставь звезду! / Like the project? Give it a star! ⭐**
+
+[![Stars](https://img.shields.io/github/stars/snowservice/snowvpn?style=for-the-badge&color=00d4d4&logo=github&logoColor=white)](https://github.com/snowservice/snowvpn/stargazers)
+[![Downloads](https://img.shields.io/github/downloads/snowservice/snowvpn/total?style=for-the-badge&color=00d4d4&logo=github&logoColor=white)](https://github.com/snowservice/snowvpn/releases)
+
+<br/>
+
+❄️ **SnowVPN** — [snowservice.github.io/snowvpn](https://snowservice.github.io/snowvpn)
 
 </div>
