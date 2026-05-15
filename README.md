@@ -9,8 +9,8 @@
 
 <br/>
 
-[![Windows](https://img.shields.io/badge/Windows-v5.0.1-00d4d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
-[![Android](https://img.shields.io/badge/Android-v1.5.3-00d4d4?style=for-the-badge&logo=android&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
+[![Windows](https://img.shields.io/badge/Windows-download-00d4d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
+[![Android](https://img.shields.io/badge/Android-download-00d4d4?style=for-the-badge&logo=android&logoColor=white)](https://github.com/snowservice/snowvpn/releases/latest)
 [![Release](https://img.shields.io/github/v/release/snowservice/snowvpn?style=for-the-badge&label=Latest&color=00d4d4)](https://github.com/snowservice/snowvpn/releases/latest)
 [![GitHub Pages](https://img.shields.io/badge/Website-Live-00d4d4?style=for-the-badge&logo=github&logoColor=white)](https://snowservice.github.io/snowvpn)
 
@@ -28,10 +28,10 @@
 
 <div align="center">
 
-| Платформа | Версия | Скачать |
-|:---------:|:------:|:-------:|
-| 🖥️ **Windows** | `v5.0.1` | [**Скачать .exe →**](https://github.com/snowservice/snowvpn/releases/latest) |
-| 🤖 **Android** | `v1.5.3` | [**Скачать .apk →**](https://github.com/snowservice/snowvpn/releases/latest) |
+| Платформа | Скачать |
+|:---------:|:-------:|
+| 🖥️ **Windows** | [**Скачать .exe →**](https://github.com/snowservice/snowvpn/releases/latest) |
+| 🤖 **Android** | [**Скачать .apk →**](https://github.com/snowservice/snowvpn/releases/latest) |
 
 </div>
 
