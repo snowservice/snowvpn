@@ -7,73 +7,87 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--cyan:#00d4d4;--cyan2:#00a8cc;--bg:#0a0f1e;--bg2:#0d1428;--bg3:#111a35;--text:#e8f4f8;--muted:#6b8fa8}
+:root{--cyan:#00d4d4;--cyan2:#00a8cc;--bg:#080d1a;--bg2:#0d1428;--bg3:#111a35;--card:#0f1730;--text:#e8f4f8;--muted:#5a7a8f}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
-canvas#snow{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5}
-.container{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+canvas#snow{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.6}
 
 /* NAV */
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;position:sticky;top:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,212,212,.1)}
-.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:700;color:var(--cyan)}
-.nav-logo img{width:32px;height:32px;border-radius:8px}
-.lang-btn{background:rgba(0,212,212,.1);border:1px solid rgba(0,212,212,.3);color:var(--cyan);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:.85rem;font-family:'Inter',sans-serif;transition:.2s}
-.lang-btn:hover{background:rgba(0,212,212,.2)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;position:sticky;top:0;z-index:100;background:rgba(8,13,26,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,212,.08)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none}
+.nav-logo img{width:30px;height:30px;border-radius:8px}
+.nav-logo span{color:var(--cyan)}
+.lang-btn{background:rgba(0,212,212,.08);border:1px solid rgba(0,212,212,.25);color:var(--cyan);padding:6px 16px;border-radius:20px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:'Inter',sans-serif;transition:.2s;letter-spacing:.05em}
+.lang-btn:hover{background:rgba(0,212,212,.18)}
+
+.container{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
 /* HERO */
-.hero{text-align:center;padding:100px 24px 80px;position:relative;z-index:1}
-.hero-icon{width:100px;height:100px;border-radius:28px;margin:0 auto 28px;display:block;box-shadow:0 0 60px rgba(0,212,212,.4)}
-.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;background:linear-gradient(135deg,#fff 30%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
-.hero-sub{font-size:1.2rem;color:var(--muted);max-width:520px;margin:0 auto 40px;line-height:1.6}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:.25s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
-.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#0a0f1e}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,212,.4)}
-.btn-outline{background:transparent;border:1.5px solid var(--cyan);color:var(--cyan)}
-.btn-outline:hover{background:rgba(0,212,212,.1);transform:translateY(-2px)}
-.btn svg{width:20px;height:20px;flex-shrink:0}
-.version-badge{display:inline-block;background:rgba(0,212,212,.1);border:1px solid rgba(0,212,212,.2);color:var(--cyan);padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:20px}
+.hero{text-align:center;padding:110px 24px 90px;position:relative;z-index:1}
+.hero-icon-wrap{position:relative;display:inline-block;margin-bottom:32px}
+.hero-icon{width:110px;height:110px;border-radius:30px;display:block;position:relative;z-index:1;box-shadow:0 0 0 1px rgba(0,212,212,.2)}
+.hero-glow{position:absolute;inset:-20px;background:radial-gradient(circle,rgba(0,212,212,.25) 0%,transparent 70%);border-radius:50%;z-index:0;animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.15);opacity:1}}
+.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.badge{display:inline-flex;align-items:center;gap:5px;background:rgba(0,212,212,.07);border:1px solid rgba(0,212,212,.18);color:rgba(0,212,212,.9);padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.03em}
+.hero h1{font-size:clamp(3rem,7vw,5.5rem);font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,#ffffff 20%,#a0e8ff 55%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px;line-height:1.05}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:480px;margin:0 auto 44px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-size:.95rem;font-weight:600;text-decoration:none;transition:.25s;cursor:pointer;border:none;font-family:'Inter',sans-serif;letter-spacing:.01em}
+.btn-primary{background:linear-gradient(135deg,var(--cyan) 0%,var(--cyan2) 100%);color:#06101e}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,212,212,.35)}
+.btn-outline{background:rgba(0,212,212,.06);border:1.5px solid rgba(0,212,212,.35);color:var(--cyan)}
+.btn-outline:hover{background:rgba(0,212,212,.14);transform:translateY(-3px)}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+
+/* SECTION */
+.section{padding:80px 0}
+.s-label{text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;opacity:.8}
+.s-title{text-align:center;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:10px;letter-spacing:-.02em}
+.s-sub{text-align:center;color:var(--muted);margin-bottom:48px;font-size:.95rem;line-height:1.6}
 
 /* SCREENSHOTS */
-.section{padding:80px 0}
-.section-title{text-align:center;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
-.section-sub{text-align:center;color:var(--muted);margin-bottom:50px;font-size:1rem}
-.tabs{display:flex;gap:8px;justify-content:center;margin-bottom:36px}
-.tab{padding:8px 22px;border-radius:20px;cursor:pointer;font-size:.9rem;font-weight:500;transition:.2s;border:1.5px solid rgba(0,212,212,.2);color:var(--muted);background:transparent}
-.tab.active{background:rgba(0,212,212,.15);border-color:var(--cyan);color:var(--cyan)}
-.screenshots-grid{display:none;grid-template-columns:repeat(3,1fr);gap:20px}
+.tabs{display:flex;gap:6px;justify-content:center;margin-bottom:32px;background:rgba(0,212,212,.05);border:1px solid rgba(0,212,212,.1);border-radius:12px;padding:5px;width:fit-content;margin-left:auto;margin-right:auto}
+.tab{padding:8px 24px;border-radius:9px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.2s;color:var(--muted);border:none;background:transparent;font-family:'Inter',sans-serif}
+.tab.active{background:rgba(0,212,212,.15);color:var(--cyan)}
+.screenshots-grid{display:none;grid-template-columns:repeat(3,1fr);gap:16px}
 .screenshots-grid.active{display:grid}
-.screenshot-card{background:var(--bg3);border-radius:16px;overflow:hidden;border:1px solid rgba(0,212,212,.1);transition:.3s}
-.screenshot-card:hover{border-color:rgba(0,212,212,.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,212,212,.15)}
-.screenshot-card img{width:100%;height:auto;display:block}
-.screenshot-label{padding:12px 16px;font-size:.85rem;color:var(--muted);text-align:center}
-@media(max-width:700px){.screenshots-grid{grid-template-columns:1fr}}
+.sc-card{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:.3s;cursor:pointer}
+.sc-card:hover{border-color:rgba(0,212,212,.3);transform:translateY(-5px);box-shadow:0 16px 50px rgba(0,0,0,.4)}
+.sc-card img{width:100%;height:auto;display:block}
+.sc-label{padding:10px 14px;font-size:.8rem;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+@media(max-width:680px){.screenshots-grid{grid-template-columns:1fr}}
 
 /* FEATURES */
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.feature-card{background:var(--bg3);border:1px solid rgba(0,212,212,.08);border-radius:16px;padding:28px 24px;transition:.3s}
-.feature-card:hover{border-color:rgba(0,212,212,.3);transform:translateY(-3px)}
-.feature-icon{font-size:2rem;margin-bottom:14px}
-.feature-title{font-size:1rem;font-weight:600;margin-bottom:8px}
-.feature-desc{font-size:.875rem;color:var(--muted);line-height:1.6}
-@media(max-width:700px){.features-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.features-grid{grid-template-columns:1fr}}
+.features-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.platform-block{background:var(--card);border:1px solid rgba(0,212,212,.08);border-radius:20px;padding:32px}
+.platform-title{display:flex;align-items:center;gap:10px;font-size:1rem;font-weight:700;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.platform-icon{font-size:1.4rem}
+.feat-list{display:flex;flex-direction:column;gap:14px}
+.feat-item{display:flex;align-items:flex-start;gap:12px}
+.feat-ico{font-size:1.3rem;flex-shrink:0;margin-top:1px}
+.feat-text{}
+.feat-name{font-size:.9rem;font-weight:600;margin-bottom:3px}
+.feat-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
+@media(max-width:680px){.features-wrap{grid-template-columns:1fr}}
 
 /* DOWNLOAD */
-.download-section{background:var(--bg2);border:1px solid rgba(0,212,212,.1);border-radius:24px;padding:60px 40px;text-align:center;margin:0 0 80px}
-.download-section h2{font-size:2rem;font-weight:700;margin-bottom:10px}
-.download-section p{color:var(--muted);margin-bottom:36px}
-.download-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.download-card{background:var(--bg3);border:1px solid rgba(0,212,212,.15);border-radius:16px;padding:30px 40px;min-width:220px;text-align:center;transition:.3s}
-.download-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
-.dl-platform{font-size:2.5rem;margin-bottom:10px}
-.dl-name{font-size:1.1rem;font-weight:600;margin-bottom:4px}
-.dl-ver{font-size:.8rem;color:var(--muted);margin-bottom:16px}
+.dl-section{background:linear-gradient(135deg,rgba(0,212,212,.06) 0%,rgba(0,168,204,.04) 100%);border:1px solid rgba(0,212,212,.12);border-radius:24px;padding:64px 40px;text-align:center;margin-bottom:80px}
+.dl-section h2{font-size:2.2rem;font-weight:700;margin-bottom:10px;letter-spacing:-.02em}
+.dl-section p{color:var(--muted);margin-bottom:40px}
+.dl-cards{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.dl-card{background:var(--card);border:1px solid rgba(0,212,212,.1);border-radius:18px;padding:32px 44px;min-width:210px;text-align:center;transition:.3s}
+.dl-card:hover{border-color:rgba(0,212,212,.35);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.35)}
+.dl-icon{font-size:2.8rem;margin-bottom:10px}
+.dl-name{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.dl-ver{font-size:.75rem;color:var(--muted);margin-bottom:18px;font-family:monospace;background:rgba(0,212,212,.06);display:inline-block;padding:2px 8px;border-radius:6px}
 
 /* FOOTER */
-footer{border-top:1px solid rgba(0,212,212,.1);padding:30px 24px;text-align:center;color:var(--muted);font-size:.85rem;position:relative;z-index:1}
+footer{border-top:1px solid rgba(255,255,255,.05);padding:28px 24px;text-align:center;color:var(--muted);font-size:.82rem;position:relative;z-index:1}
 footer a{color:var(--cyan);text-decoration:none}
+footer a:hover{text-decoration:underline}
 
-.glow{text-shadow:0 0 30px rgba(0,212,212,.5)}
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,212,.15),transparent);margin:0 auto;max-width:600px}
 </style>
 </head>
 <body>
@@ -81,125 +95,133 @@ footer a{color:var(--cyan);text-decoration:none}
 <canvas id="snow"></canvas>
 
 <nav>
-  <div class="nav-logo">
+  <a class="nav-logo" href="#">
     <img src="icon.png" alt="SnowVPN">
-    SnowVPN
-  </div>
-  <button class="lang-btn" onclick="toggleLang()">EN</button>
+    Snow<span>VPN</span>
+  </a>
+  <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <img src="icon.png" alt="SnowVPN" class="hero-icon">
-  <div class="version-badge" data-ru="Версия 5.0 для Windows • 1.5 для Android" data-en="Version 5.0 for Windows • 1.5 for Android">Версия 5.0 для Windows • 1.5 для Android</div>
-  <h1 class="glow">SnowVPN</h1>
-  <p class="hero-sub" data-ru="Быстрый, безопасный и бесплатный VPN для Windows и Android. Один клик — и ты в сети." data-en="Fast, secure and free VPN for Windows and Android. One tap — connected.">Быстрый, безопасный и бесплатный VPN для Windows и Android. Один клик — и ты в сети.</p>
+  <div class="hero-icon-wrap">
+    <div class="hero-glow"></div>
+    <img src="icon.png" alt="SnowVPN" class="hero-icon">
+  </div>
+  <div class="badge-row">
+    <div class="badge">🖥️ Windows v5.0.1</div>
+    <div class="badge">🤖 Android v1.5.3</div>
+    <div class="badge">🌍 30+ <span data-ru="стран" data-en="countries">стран</span></div>
+  </div>
+  <h1>SnowVPN</h1>
+  <p class="hero-sub" data-ru="Быстрый и безопасный VPN-клиент для Windows и Android. Один клик — и ты в сети." data-en="Fast and secure VPN client for Windows and Android. One tap — connected.">Быстрый и безопасный VPN-клиент для Windows и Android. Один клик — и ты в сети.</p>
   <div class="hero-btns">
     <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-primary">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2s2-8 3-9C17 2 17 8 17 8"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2"/></svg>
       <span data-ru="Скачать для Windows" data-en="Download for Windows">Скачать для Windows</span>
     </a>
     <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-outline">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
       <span data-ru="Скачать для Android" data-en="Download for Android">Скачать для Android</span>
     </a>
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- SCREENSHOTS -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title" data-ru="Скриншоты" data-en="Screenshots">Скриншоты</h2>
-    <p class="section-sub" data-ru="Простой интерфейс, всё под рукой" data-en="Clean interface, everything at hand">Простой интерфейс, всё под рукой</p>
+    <p class="s-label" data-ru="ИНТЕРФЕЙС" data-en="INTERFACE">ИНТЕРФЕЙС</p>
+    <h2 class="s-title" data-ru="Скриншоты" data-en="Screenshots">Скриншоты</h2>
+    <p class="s-sub" data-ru="Минималистичный дизайн, всё под рукой" data-en="Minimalist design, everything at hand">Минималистичный дизайн, всё под рукой</p>
     <div class="tabs">
-      <div class="tab active" onclick="switchTab('pc',this)" data-ru="Windows" data-en="Windows">Windows</div>
-      <div class="tab" onclick="switchTab('android',this)" data-ru="Android" data-en="Android">Android</div>
+      <button class="tab active" onclick="switchTab('pc',this)">🖥️ Windows</button>
+      <button class="tab" onclick="switchTab('android',this)">🤖 Android</button>
     </div>
     <div class="screenshots-grid active" id="tab-pc">
-      <div class="screenshot-card"><img src="screenshots/pc-main.png" alt="Main"><div class="screenshot-label" data-ru="Главный экран" data-en="Main screen">Главный экран</div></div>
-      <div class="screenshot-card"><img src="screenshots/pc-servers.png" alt="Servers"><div class="screenshot-label" data-ru="Список серверов" data-en="Server list">Список серверов</div></div>
-      <div class="screenshot-card"><img src="screenshots/pc-modes.png" alt="Modes"><div class="screenshot-label" data-ru="Режимы работы" data-en="Routing modes">Режимы работы</div></div>
+      <div class="sc-card"><img src="screenshots/pc-main.png" alt="Main"><div class="sc-label" data-ru="Главный экран" data-en="Main screen">Главный экран</div></div>
+      <div class="sc-card"><img src="screenshots/pc-servers.png" alt="Servers"><div class="sc-label" data-ru="Список серверов" data-en="Server list">Список серверов</div></div>
+      <div class="sc-card"><img src="screenshots/pc-modes.png" alt="Modes"><div class="sc-label" data-ru="Режим работы" data-en="Routing mode">Режим работы</div></div>
     </div>
     <div class="screenshots-grid" id="tab-android">
-      <div class="screenshot-card"><img src="screenshots/android-main.jpg" alt="Main"><div class="screenshot-label" data-ru="Главный экран" data-en="Main screen">Главный экран</div></div>
-      <div class="screenshot-card"><img src="screenshots/android-servers.jpg" alt="Servers"><div class="screenshot-label" data-ru="Список серверов" data-en="Server list">Список серверов</div></div>
-      <div class="screenshot-card"><img src="screenshots/android-modes.jpg" alt="Modes"><div class="screenshot-label" data-ru="Режимы работы" data-en="Routing modes">Режимы работы</div></div>
+      <div class="sc-card"><img src="screenshots/android-main.jpg" alt="Main"><div class="sc-label" data-ru="Главный экран" data-en="Main screen">Главный экран</div></div>
+      <div class="sc-card"><img src="screenshots/android-servers.jpg" alt="Servers"><div class="sc-label" data-ru="Список серверов" data-en="Server list">Список серверов</div></div>
+      <div class="sc-card"><img src="screenshots/android-modes.jpg" alt="Modes"><div class="sc-label" data-ru="Профили маршрутизации" data-en="Routing profiles">Профили маршрутизации</div></div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0">
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section class="section">
   <div class="container">
-    <h2 class="section-title" data-ru="Возможности" data-en="Features">Возможности</h2>
-    <p class="section-sub" data-ru="Всё что нужно для свободного интернета" data-en="Everything you need for a free internet">Всё что нужно для свободного интернета</p>
-    <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-title" data-ru="Одно нажатие" data-en="One tap connect">Одно нажатие</div><p class="feature-desc" data-ru="Подключение за секунды. Нажми снежинку и ты онлайн." data-en="Connect in seconds. Tap the snowflake and you're online.">Подключение за секунды. Нажми снежинку и ты онлайн.</p></div>
-      <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-title" data-ru="30+ стран" data-en="30+ countries">30+ стран</div><p class="feature-desc" data-ru="Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый сервер." data-en="Servers in Europe, Asia and CIS. Always a fast server nearby.">Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый сервер.</p></div>
-      <div class="feature-card"><div class="feature-icon">📱</div><div class="feature-title" data-ru="VPN по приложениям" data-en="Per-app VPN">VPN по приложениям</div><p class="feature-desc" data-ru="Выбери какие приложения идут через VPN, остальные — напрямую." data-en="Choose which apps go through VPN, others connect directly.">Выбери какие приложения идут через VPN, остальные — напрямую.</p></div>
-      <div class="feature-card"><div class="feature-icon">🇷🇺</div><div class="feature-title" data-ru="Обход РФ трафика" data-en="RU traffic bypass">Обход РФ трафика</div><p class="feature-desc" data-ru="Российские сайты работают напрямую, иностранные — через VPN." data-en="Russian sites connect directly, foreign ones go through VPN.">Российские сайты работают напрямую, иностранные — через VPN.</p></div>
-      <div class="feature-card"><div class="feature-icon">✨</div><div class="feature-title" data-ru="AI-маршрутизация" data-en="AI routing">AI-маршрутизация</div><p class="feature-desc" data-ru="Gemini и AI-сервисы идут через выделенный быстрый сервер." data-en="Gemini and AI services route through a dedicated fast server.">Gemini и AI-сервисы идут через выделенный быстрый сервер.</p></div>
-      <div class="feature-card"><div class="feature-icon">🆓</div><div class="feature-title" data-ru="Бесплатно" data-en="Free">Бесплатно</div><p class="feature-desc" data-ru="Без рекламы, без подписки, без ограничений скорости." data-en="No ads, no subscription, no speed limits.">Без рекламы, без подписки, без ограничений скорости.</p></div>
+    <p class="s-label" data-ru="ВОЗМОЖНОСТИ" data-en="FEATURES">ВОЗМОЖНОСТИ</p>
+    <h2 class="s-title" data-ru="Всё для свободного интернета" data-en="Everything for a free internet">Всё для свободного интернета</h2>
+    <p class="s-sub" data-ru="Разные платформы — разные суперспособности" data-en="Different platforms — different superpowers">Разные платформы — разные суперспособности</p>
+    <div class="features-wrap">
+
+      <!-- WINDOWS -->
+      <div class="platform-block">
+        <div class="platform-title"><span class="platform-icon">🖥️</span> Windows</div>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-ico">⚡</div><div class="feat-text"><div class="feat-name" data-ru="Быстрое подключение" data-en="Fast connection">Быстрое подключение</div><div class="feat-desc" data-ru="Подключение за секунды — один клик и ты в сети." data-en="Connect in seconds — one click and you're online.">Подключение за секунды — один клик и ты в сети.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">🌍</div><div class="feat-text"><div class="feat-name" data-ru="30+ стран" data-en="30+ countries">30+ стран</div><div class="feat-desc" data-ru="Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый." data-en="Servers in Europe, Asia and CIS. Always a fast one nearby.">Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">🔀</div><div class="feat-text"><div class="feat-name" data-ru="VPN по приложениям" data-en="Per-app VPN">VPN по приложениям</div><div class="feat-desc" data-ru="Выбери какие программы идут через VPN — есть готовые правила. Остальные приложения работают напрямую без VPN." data-en="Choose which apps go through VPN — preset rules included. Other apps connect directly without VPN.">Выбери какие программы идут через VPN — есть готовые правила. Остальные приложения работают напрямую без VPN.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">✨</div><div class="feat-text"><div class="feat-name" data-ru="AI-маршрутизация" data-en="AI routing">AI-маршрутизация</div><div class="feat-desc" data-ru="Включается в настройках — Gemini и Google AI идут через выделенный сервер на любом подключении." data-en="Enable in settings — Gemini and Google AI route through a dedicated server on any connection.">Включается в настройках — Gemini и Google AI идут через выделенный сервер на любом подключении.</div></div></div>
+        </div>
+      </div>
+
+      <!-- ANDROID -->
+      <div class="platform-block">
+        <div class="platform-title"><span class="platform-icon">🤖</span> Android</div>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-ico">⚡</div><div class="feat-text"><div class="feat-name" data-ru="Быстрое подключение" data-en="Fast connection">Быстрое подключение</div><div class="feat-desc" data-ru="Подключение за секунды — одно нажатие и ты в сети." data-en="Connect in seconds — one tap and you're online.">Подключение за секунды — одно нажатие и ты в сети.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">🌍</div><div class="feat-text"><div class="feat-name" data-ru="30+ стран" data-en="30+ countries">30+ стран</div><div class="feat-desc" data-ru="Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый." data-en="Servers in Europe, Asia and CIS. Always a fast one nearby.">Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">🔀</div><div class="feat-text"><div class="feat-name" data-ru="VPN по приложениям" data-en="Per-app VPN">VPN по приложениям</div><div class="feat-desc" data-ru="Выбери какие приложения идут через VPN, остальные — напрямую." data-en="Choose which apps go through VPN, others connect directly.">Выбери какие приложения идут через VPN, остальные — напрямую.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">🇷🇺</div><div class="feat-text"><div class="feat-name" data-ru="Обход РФ трафика" data-en="RU traffic bypass">Обход РФ трафика</div><div class="feat-desc" data-ru="Российские сайты работают напрямую, иностранные — через VPN." data-en="Russian sites connect directly, foreign ones go through VPN.">Российские сайты работают напрямую, иностранные — через VPN.</div></div></div>
+          <div class="feat-item"><div class="feat-ico">✨</div><div class="feat-text"><div class="feat-name" data-ru="AI-маршрутизация" data-en="AI routing">AI-маршрутизация</div><div class="feat-desc" data-ru="5 нажатий на настройки — и выбирай сервер с припиской Gemini (рекомендуем Турцию). Gemini и AI-сервисы полетят." data-en="Tap settings 5 times — choose a Gemini server (Turkey recommended). Gemini and AI services will fly.">5 нажатий на настройки — и выбирай сервер с припиской Gemini (рекомендуем Турцию). Gemini и AI-сервисы полетят.</div></div></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<div class="container">
-  <div class="download-section">
-    <h2 data-ru="Скачать SnowVPN" data-en="Download SnowVPN">Скачать SnowVPN</h2>
-    <p data-ru="Доступно для Windows и Android. Бесплатно." data-en="Available for Windows and Android. Free.">Доступно для Windows и Android. Бесплатно.</p>
-    <div class="download-cards">
-      <div class="download-card">
-        <div class="dl-platform">🖥️</div>
-        <div class="dl-name">Windows</div>
-        <div class="dl-ver">v5.0.1</div>
-        <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-primary" style="width:100%;justify-content:center">
-          <span data-ru="Скачать .exe" data-en="Download .exe">Скачать .exe</span>
-        </a>
-      </div>
-      <div class="download-card">
-        <div class="dl-platform">🤖</div>
-        <div class="dl-name">Android</div>
-        <div class="dl-ver">v1.5.3</div>
-        <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-primary" style="width:100%;justify-content:center">
-          <span data-ru="Скачать .apk" data-en="Download .apk">Скачать .apk</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <footer>
   <p>SnowVPN © 2025 &nbsp;·&nbsp; <a href="https://github.com/snowservice/snowvpn">GitHub</a></p>
 </footer>
 
 <script>
-// Snow
+// Snow animation
 const canvas=document.getElementById('snow'),ctx=canvas.getContext('2d');
 let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight;
 window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight});
-const flakes=Array.from({length:80},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.5+.5,s:Math.random()*.4+.1,o:Math.random()*.5+.2,dx:Math.random()*.3-.15}));
-function drawSnow(){
+const flakes=Array.from({length:100},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.4,s:Math.random()*.35+.08,o:Math.random()*.4+.15,dx:Math.random()*.25-.12}));
+(function draw(){
   ctx.clearRect(0,0,W,H);
   flakes.forEach(f=>{
     ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
     ctx.fillStyle=`rgba(0,212,212,${f.o})`;ctx.fill();
     f.y+=f.s;f.x+=f.dx;
-    if(f.y>H){f.y=0;f.x=Math.random()*W}
+    if(f.y>H+5){f.y=-5;f.x=Math.random()*W}
     if(f.x>W)f.x=0;if(f.x<0)f.x=W;
   });
-  requestAnimationFrame(drawSnow);
-}
-drawSnow();
+  requestAnimationFrame(draw);
+})();
 
-// Lang
+// Language toggle
 let lang='ru';
 function toggleLang(){
   lang=lang==='ru'?'en':'ru';
-  document.querySelector('.lang-btn').textContent=lang==='ru'?'EN':'RU';
+  document.getElementById('langBtn').textContent=lang==='ru'?'EN':'RU';
   document.querySelectorAll('[data-ru]').forEach(el=>{
-    el.textContent=el.dataset[lang];
+    if(el.dataset[lang])el.textContent=el.dataset[lang];
   });
 }
 
-// Tabs
+// Screenshot tabs
 function switchTab(name,el){
   document.querySelectorAll('.screenshots-grid').forEach(g=>g.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
