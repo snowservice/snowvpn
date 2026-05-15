@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnowVPN — Fast & Secure VPN</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cyan:#00d4d4;--cyan2:#00a8cc;--bg:#0a0f1e;--bg2:#0d1428;--bg3:#111a35;--text:#e8f4f8;--muted:#6b8fa8}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+canvas#snow{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;position:sticky;top:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,212,212,.1)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:700;color:var(--cyan)}
+.nav-logo img{width:32px;height:32px;border-radius:8px}
+.lang-btn{background:rgba(0,212,212,.1);border:1px solid rgba(0,212,212,.3);color:var(--cyan);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:.85rem;font-family:'Inter',sans-serif;transition:.2s}
+.lang-btn:hover{background:rgba(0,212,212,.2)}
+
+/* HERO */
+.hero{text-align:center;padding:100px 24px 80px;position:relative;z-index:1}
+.hero-icon{width:100px;height:100px;border-radius:28px;margin:0 auto 28px;display:block;box-shadow:0 0 60px rgba(0,212,212,.4)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;background:linear-gradient(135deg,#fff 30%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero-sub{font-size:1.2rem;color:var(--muted);max-width:520px;margin:0 auto 40px;line-height:1.6}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:.25s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--cyan2));color:#0a0f1e}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,212,.4)}
+.btn-outline{background:transparent;border:1.5px solid var(--cyan);color:var(--cyan)}
+.btn-outline:hover{background:rgba(0,212,212,.1);transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+.version-badge{display:inline-block;background:rgba(0,212,212,.1);border:1px solid rgba(0,212,212,.2);color:var(--cyan);padding:4px 12px;border-radius:20px;font-size:.8rem;margin-bottom:20px}
+
+/* SCREENSHOTS */
+.section{padding:80px 0}
+.section-title{text-align:center;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;margin-bottom:12px}
+.section-sub{text-align:center;color:var(--muted);margin-bottom:50px;font-size:1rem}
+.tabs{display:flex;gap:8px;justify-content:center;margin-bottom:36px}
+.tab{padding:8px 22px;border-radius:20px;cursor:pointer;font-size:.9rem;font-weight:500;transition:.2s;border:1.5px solid rgba(0,212,212,.2);color:var(--muted);background:transparent}
+.tab.active{background:rgba(0,212,212,.15);border-color:var(--cyan);color:var(--cyan)}
+.screenshots-grid{display:none;grid-template-columns:repeat(3,1fr);gap:20px}
+.screenshots-grid.active{display:grid}
+.screenshot-card{background:var(--bg3);border-radius:16px;overflow:hidden;border:1px solid rgba(0,212,212,.1);transition:.3s}
+.screenshot-card:hover{border-color:rgba(0,212,212,.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,212,212,.15)}
+.screenshot-card img{width:100%;height:auto;display:block}
+.screenshot-label{padding:12px 16px;font-size:.85rem;color:var(--muted);text-align:center}
+@media(max-width:700px){.screenshots-grid{grid-template-columns:1fr}}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card{background:var(--bg3);border:1px solid rgba(0,212,212,.08);border-radius:16px;padding:28px 24px;transition:.3s}
+.feature-card:hover{border-color:rgba(0,212,212,.3);transform:translateY(-3px)}
+.feature-icon{font-size:2rem;margin-bottom:14px}
+.feature-title{font-size:1rem;font-weight:600;margin-bottom:8px}
+.feature-desc{font-size:.875rem;color:var(--muted);line-height:1.6}
+@media(max-width:700px){.features-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.features-grid{grid-template-columns:1fr}}
+
+/* DOWNLOAD */
+.download-section{background:var(--bg2);border:1px solid rgba(0,212,212,.1);border-radius:24px;padding:60px 40px;text-align:center;margin:0 0 80px}
+.download-section h2{font-size:2rem;font-weight:700;margin-bottom:10px}
+.download-section p{color:var(--muted);margin-bottom:36px}
+.download-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.download-card{background:var(--bg3);border:1px solid rgba(0,212,212,.15);border-radius:16px;padding:30px 40px;min-width:220px;text-align:center;transition:.3s}
+.download-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.dl-platform{font-size:2.5rem;margin-bottom:10px}
+.dl-name{font-size:1.1rem;font-weight:600;margin-bottom:4px}
+.dl-ver{font-size:.8rem;color:var(--muted);margin-bottom:16px}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(0,212,212,.1);padding:30px 24px;text-align:center;color:var(--muted);font-size:.85rem;position:relative;z-index:1}
+footer a{color:var(--cyan);text-decoration:none}
+
+.glow{text-shadow:0 0 30px rgba(0,212,212,.5)}
+</style>
+</head>
+<body>
+
+<canvas id="snow"></canvas>
+
+<nav>
+  <div class="nav-logo">
+    <img src="icon.png" alt="SnowVPN">
+    SnowVPN
+  </div>
+  <button class="lang-btn" onclick="toggleLang()">EN</button>
+</nav>
+
+<section class="hero">
+  <img src="icon.png" alt="SnowVPN" class="hero-icon">
+  <div class="version-badge" data-ru="Версия 5.0 для Windows • 1.5 для Android" data-en="Version 5.0 for Windows • 1.5 for Android">Версия 5.0 для Windows • 1.5 для Android</div>
+  <h1 class="glow">SnowVPN</h1>
+  <p class="hero-sub" data-ru="Быстрый, безопасный и бесплатный VPN для Windows и Android. Один клик — и ты в сети." data-en="Fast, secure and free VPN for Windows and Android. One tap — connected.">Быстрый, безопасный и бесплатный VPN для Windows и Android. Один клик — и ты в сети.</p>
+  <div class="hero-btns">
+    <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2s2-8 3-9C17 2 17 8 17 8"/></svg>
+      <span data-ru="Скачать для Windows" data-en="Download for Windows">Скачать для Windows</span>
+    </a>
+    <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-outline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+      <span data-ru="Скачать для Android" data-en="Download for Android">Скачать для Android</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title" data-ru="Скриншоты" data-en="Screenshots">Скриншоты</h2>
+    <p class="section-sub" data-ru="Простой интерфейс, всё под рукой" data-en="Clean interface, everything at hand">Простой интерфейс, всё под рукой</p>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('pc',this)" data-ru="Windows" data-en="Windows">Windows</div>
+      <div class="tab" onclick="switchTab('android',this)" data-ru="Android" data-en="Android">Android</div>
+    </div>
+    <div class="screenshots-grid active" id="tab-pc">
+      <div class="screenshot-card"><img src="screenshots/pc-main.png" alt="Main"><div class="screenshot-label" data-ru="Главный экран" data-en="Main screen">Главный экран</div></div>
+      <div class="screenshot-card"><img src="screenshots/pc-servers.png" alt="Servers"><div class="screenshot-label" data-ru="Список серверов" data-en="Server list">Список серверов</div></div>
+      <div class="screenshot-card"><img src="screenshots/pc-modes.png" alt="Modes"><div class="screenshot-label" data-ru="Режимы работы" data-en="Routing modes">Режимы работы</div></div>
+    </div>
+    <div class="screenshots-grid" id="tab-android">
+      <div class="screenshot-card"><img src="screenshots/android-main.jpg" alt="Main"><div class="screenshot-label" data-ru="Главный экран" data-en="Main screen">Главный экран</div></div>
+      <div class="screenshot-card"><img src="screenshots/android-servers.jpg" alt="Servers"><div class="screenshot-label" data-ru="Список серверов" data-en="Server list">Список серверов</div></div>
+      <div class="screenshot-card"><img src="screenshots/android-modes.jpg" alt="Modes"><div class="screenshot-label" data-ru="Режимы работы" data-en="Routing modes">Режимы работы</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <h2 class="section-title" data-ru="Возможности" data-en="Features">Возможности</h2>
+    <p class="section-sub" data-ru="Всё что нужно для свободного интернета" data-en="Everything you need for a free internet">Всё что нужно для свободного интернета</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">⚡</div><div class="feature-title" data-ru="Одно нажатие" data-en="One tap connect">Одно нажатие</div><p class="feature-desc" data-ru="Подключение за секунды. Нажми снежинку и ты онлайн." data-en="Connect in seconds. Tap the snowflake and you're online.">Подключение за секунды. Нажми снежинку и ты онлайн.</p></div>
+      <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-title" data-ru="30+ стран" data-en="30+ countries">30+ стран</div><p class="feature-desc" data-ru="Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый сервер." data-en="Servers in Europe, Asia and CIS. Always a fast server nearby.">Серверы в Европе, Азии и СНГ. Всегда найдётся быстрый сервер.</p></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><div class="feature-title" data-ru="VPN по приложениям" data-en="Per-app VPN">VPN по приложениям</div><p class="feature-desc" data-ru="Выбери какие приложения идут через VPN, остальные — напрямую." data-en="Choose which apps go through VPN, others connect directly.">Выбери какие приложения идут через VPN, остальные — напрямую.</p></div>
+      <div class="feature-card"><div class="feature-icon">🇷🇺</div><div class="feature-title" data-ru="Обход РФ трафика" data-en="RU traffic bypass">Обход РФ трафика</div><p class="feature-desc" data-ru="Российские сайты работают напрямую, иностранные — через VPN." data-en="Russian sites connect directly, foreign ones go through VPN.">Российские сайты работают напрямую, иностранные — через VPN.</p></div>
+      <div class="feature-card"><div class="feature-icon">✨</div><div class="feature-title" data-ru="AI-маршрутизация" data-en="AI routing">AI-маршрутизация</div><p class="feature-desc" data-ru="Gemini и AI-сервисы идут через выделенный быстрый сервер." data-en="Gemini and AI services route through a dedicated fast server.">Gemini и AI-сервисы идут через выделенный быстрый сервер.</p></div>
+      <div class="feature-card"><div class="feature-icon">🆓</div><div class="feature-title" data-ru="Бесплатно" data-en="Free">Бесплатно</div><p class="feature-desc" data-ru="Без рекламы, без подписки, без ограничений скорости." data-en="No ads, no subscription, no speed limits.">Без рекламы, без подписки, без ограничений скорости.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="download-section">
+    <h2 data-ru="Скачать SnowVPN" data-en="Download SnowVPN">Скачать SnowVPN</h2>
+    <p data-ru="Доступно для Windows и Android. Бесплатно." data-en="Available for Windows and Android. Free.">Доступно для Windows и Android. Бесплатно.</p>
+    <div class="download-cards">
+      <div class="download-card">
+        <div class="dl-platform">🖥️</div>
+        <div class="dl-name">Windows</div>
+        <div class="dl-ver">v5.0.1</div>
+        <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-primary" style="width:100%;justify-content:center">
+          <span data-ru="Скачать .exe" data-en="Download .exe">Скачать .exe</span>
+        </a>
+      </div>
+      <div class="download-card">
+        <div class="dl-platform">🤖</div>
+        <div class="dl-name">Android</div>
+        <div class="dl-ver">v1.5.3</div>
+        <a href="https://github.com/snowservice/snowvpn/releases/latest" class="btn btn-primary" style="width:100%;justify-content:center">
+          <span data-ru="Скачать .apk" data-en="Download .apk">Скачать .apk</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>SnowVPN © 2025 &nbsp;·&nbsp; <a href="https://github.com/snowservice/snowvpn">GitHub</a></p>
+</footer>
+
+<script>
+// Snow
+const canvas=document.getElementById('snow'),ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight});
+const flakes=Array.from({length:80},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.5+.5,s:Math.random()*.4+.1,o:Math.random()*.5+.2,dx:Math.random()*.3-.15}));
+function drawSnow(){
+  ctx.clearRect(0,0,W,H);
+  flakes.forEach(f=>{
+    ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,212,212,${f.o})`;ctx.fill();
+    f.y+=f.s;f.x+=f.dx;
+    if(f.y>H){f.y=0;f.x=Math.random()*W}
+    if(f.x>W)f.x=0;if(f.x<0)f.x=W;
+  });
+  requestAnimationFrame(drawSnow);
+}
+drawSnow();
+
+// Lang
+let lang='ru';
+function toggleLang(){
+  lang=lang==='ru'?'en':'ru';
+  document.querySelector('.lang-btn').textContent=lang==='ru'?'EN':'RU';
+  document.querySelectorAll('[data-ru]').forEach(el=>{
+    el.textContent=el.dataset[lang];
+  });
+}
+
+// Tabs
+function switchTab(name,el){
+  document.querySelectorAll('.screenshots-grid').forEach(g=>g.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
