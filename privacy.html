@@ -47,11 +47,11 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
 .contact-box p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
 .contact-link{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,212,.1);border:1px solid rgba(0,212,212,.3);color:var(--cyan);padding:10px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;transition:.2s}
 .contact-link:hover{background:rgba(0,212,212,.2)}
-[data-lang-en]{display:none}
+body.lang-ru [data-lang-en]{display:none} body.lang-en [data-lang-ru]{display:none}
 @media(max-width:600px){nav{padding:14px 20px}.container{padding:40px 16px 80px}.summary{grid-template-columns:1fr 1fr}}
 </style>
 </head>
-<body>
+<body class="lang-ru">
 
 <nav>
   <a class="nav-logo" href="index.html"><img src="icon.png" alt="SnowVPN"/>Snow<span>VPN</span></a>
@@ -234,8 +234,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 4
 
 <script>
 function setLang(lang) {
-  document.querySelectorAll('[data-lang-ru]').forEach(el => el.style.display = lang === 'ru' ? '' : 'none');
-  document.querySelectorAll('[data-lang-en]').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  document.body.className = 'lang-' + lang;
   document.getElementById('btn-ru').className = 'lang-btn' + (lang === 'ru' ? ' active' : '');
   document.getElementById('btn-en').className = 'lang-btn' + (lang === 'en' ? ' active' : '');
 }
