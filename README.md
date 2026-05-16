@@ -2,10 +2,10 @@
 
 <img src="icon.png" width="120" height="120" alt="SnowVPN"/>
 
-# ❄️ SnowVPN
+# ❄️ Snow Service
 
-**Быстрый и безопасный VPN-клиент для Windows и Android**<br/>
-**Fast and secure VPN client for Windows and Android**
+**Быстрый и безопасный VPN для Windows и Android**<br/>
+**Fast and secure VPN for Windows and Android**
 
 <br/>
 
@@ -89,6 +89,6 @@
 
 <br/>
 
-❄️ **SnowVPN** — [snowservice.github.io/snowvpn](https://snowservice.github.io/snowvpn)
+❄️ **Snow Service** — [snowservice.github.io/snowvpn](https://snowservice.github.io/snowvpn)
 
 </div>
