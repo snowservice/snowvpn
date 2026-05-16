@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnowVPN — Политика конфиденциальности</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cyan:#00d4d4;--cyan2:#00a8cc;--bg:#080d1a;--bg2:#0d1428;--bg3:#111a35;--card:#0f1730;--text:#e8f4f8;--muted:#5a7a8f}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;position:sticky;top:0;z-index:100;background:rgba(8,13,26,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,212,.08)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none}
+.nav-logo img{width:30px;height:30px;border-radius:8px}
+.nav-logo span{color:var(--cyan)}
+.nav-back{background:rgba(0,212,212,.08);border:1px solid rgba(0,212,212,.25);color:var(--cyan);padding:6px 16px;border-radius:20px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:.2s}
+.nav-back:hover{background:rgba(0,212,212,.18)}
+
+/* LAYOUT */
+.container{max-width:760px;margin:0 auto;padding:60px 24px 100px}
+
+/* HEADER */
+.page-header{text-align:center;margin-bottom:56px}
+.page-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);opacity:.8;margin-bottom:12px}
+.page-title{font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,#ffffff 20%,#a0e8ff 55%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.page-date{color:var(--muted);font-size:.9rem}
+
+/* SUMMARY CARDS */
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:48px}
+.sum-card{background:var(--card);border:1px solid rgba(0,212,212,.12);border-radius:14px;padding:20px;text-align:center}
+.sum-icon{font-size:1.8rem;margin-bottom:8px}
+.sum-title{font-size:.8rem;font-weight:700;color:var(--cyan);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.sum-text{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+/* SECTIONS */
+.section{margin-bottom:40px}
+.section h2{font-size:1.15rem;font-weight:700;color:var(--cyan);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(0,212,212,.12);display:flex;align-items:center;gap:8px}
+.section p{color:rgba(232,244,248,.8);font-size:.95rem;margin-bottom:12px}
+.section ul{list-style:none;padding:0;margin-bottom:12px}
+.section ul li{color:rgba(232,244,248,.8);font-size:.95rem;padding:6px 0 6px 20px;position:relative}
+.section ul li::before{content:"—";position:absolute;left:0;color:var(--cyan);opacity:.6}
+
+/* PERMISSION TABLE */
+.perm-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
+.perm-table th{background:rgba(0,212,212,.08);color:var(--cyan);font-weight:600;text-align:left;padding:10px 14px;border-bottom:1px solid rgba(0,212,212,.15)}
+.perm-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(232,244,248,.8);vertical-align:top}
+.perm-table tr:last-child td{border-bottom:none}
+.perm-table tr:hover td{background:rgba(0,212,212,.03)}
+.perm-name{font-family:monospace;font-size:.82rem;color:var(--cyan);opacity:.9;white-space:nowrap}
+
+/* HIGHLIGHT BOX */
+.highlight{background:rgba(0,212,212,.06);border:1px solid rgba(0,212,212,.2);border-radius:12px;padding:18px 20px;margin:16px 0}
+.highlight p{color:rgba(232,244,248,.85);font-size:.92rem;margin:0}
+.highlight strong{color:var(--cyan)}
+
+/* CONTACT */
+.contact-box{background:var(--card);border:1px solid rgba(0,212,212,.15);border-radius:16px;padding:28px;text-align:center;margin-top:48px}
+.contact-box h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.contact-box p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.contact-link{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,212,.1);border:1px solid rgba(0,212,212,.3);color:var(--cyan);padding:10px 22px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;transition:.2s}
+.contact-link:hover{background:rgba(0,212,212,.2)}
+
+@media(max-width:600px){nav{padding:14px 20px}.container{padding:40px 16px 80px}.summary{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="icon.png" alt="SnowVPN"/>
+    Snow<span>VPN</span>
+  </a>
+  <a class="nav-back" href="index.html">← На главную</a>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <div class="page-label">Юридическая информация</div>
+    <h1 class="page-title">Политика конфиденциальности</h1>
+    <p class="page-date">Дата вступления в силу: 16 мая 2025 г.</p>
+  </div>
+
+  <!-- Краткое резюме -->
+  <div class="summary">
+    <div class="sum-card">
+      <div class="sum-icon">🚫</div>
+      <div class="sum-title">Не собираем</div>
+      <div class="sum-text">Не собираем и не храним ваш VPN-трафик и историю посещений</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-icon">🔒</div>
+      <div class="sum-title">Не продаём</div>
+      <div class="sum-text">Никакие данные не передаются третьим лицам в коммерческих целях</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-icon">📱</div>
+      <div class="sum-title">Минимум данных</div>
+      <div class="sum-text">Собираем только то, что необходимо для работы приложения</div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2>1. Общие положения</h2>
+    <p>Настоящая Политика конфиденциальности описывает, какие данные собирает приложение SnowVPN («мы», «наш», «приложение»), как они используются и защищаются.</p>
+    <p>Используя SnowVPN, вы соглашаетесь с условиями данной политики. Если вы не согласны — пожалуйста, прекратите использование приложения.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2>2. Какие данные мы собираем</h2>
+
+    <div class="highlight">
+      <p><strong>Мы не ведём логи VPN-трафика.</strong> Мы не записываем, не анализируем и не храним содержимое вашего интернет-трафика, посещённые сайты, DNS-запросы или IP-адреса назначения.</p>
+    </div>
+
+    <p><strong>Технические данные (анонимные):</strong></p>
+    <ul>
+      <li>Анонимные отчёты об ошибках через Sentry (только при сбоях приложения)</li>
+      <li>Версия приложения и операционной системы — для диагностики</li>
+      <li>Тип устройства (производитель, модель) — только при сбоях</li>
+    </ul>
+
+    <p><strong>Данные, которые мы НЕ собираем:</strong></p>
+    <ul>
+      <li>VPN-трафик, посещаемые сайты, DNS-запросы</li>
+      <li>Ваш реальный IP-адрес или геолокация</li>
+      <li>Личные данные: имя, email, номер телефона</li>
+      <li>Данные банковских карт или платёжная информация</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2>3. Разрешения приложения</h2>
+    <p>SnowVPN запрашивает только те разрешения, которые необходимы для работы:</p>
+
+    <table class="perm-table">
+      <thead>
+        <tr>
+          <th>Разрешение</th>
+          <th>Для чего используется</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="perm-name">BIND_VPN_SERVICE</span></td>
+          <td>Создание VPN-туннеля — основная функция приложения</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">FOREGROUND_SERVICE</span></td>
+          <td>Работа VPN в фоне с уведомлением о статусе подключения</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">POST_NOTIFICATIONS</span></td>
+          <td>Уведомление со статистикой трафика и состоянием VPN</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">RECEIVE_BOOT_COMPLETED</span></td>
+          <td>Автозапуск VPN после перезагрузки устройства (если включено)</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">WAKE_LOCK</span></td>
+          <td>Предотвращение разрыва VPN-соединения в режиме ожидания</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</span></td>
+          <td>Стабильная работа VPN без принудительного завершения системой</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">ACCESS_NETWORK_STATE / ACCESS_WIFI_STATE</span></td>
+          <td>Мониторинг смены сети (Wi-Fi ↔ мобильный интернет) для переподключения</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">CHANGE_NETWORK_STATE</span></td>
+          <td>Управление сетевыми маршрутами при переключении интерфейсов</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">QUERY_ALL_PACKAGES</span></td>
+          <td>Отображение списка установленных приложений для функции «Прокси по приложениям» — пользователь сам выбирает, какие приложения идут через VPN</td>
+        </tr>
+        <tr>
+          <td><span class="perm-name">INTERNET</span></td>
+          <td>Подключение к VPN-серверам и обновление конфигурации</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2>4. Отчёты об ошибках (Sentry)</h2>
+    <p>Для улучшения стабильности приложения мы используем сервис <strong>Sentry</strong> для сбора анонимных отчётов о сбоях. Отчёты содержат:</p>
+    <ul>
+      <li>Стек-трейс ошибки (техническая информация о сбое)</li>
+      <li>Версию приложения и Android</li>
+      <li>Модель устройства</li>
+    </ul>
+    <div class="highlight">
+      <p>Отчёты об ошибках <strong>не содержат</strong> личных данных, VPN-трафика или информации о посещённых сайтах. Sentry работает только при сбое приложения, а не в штатном режиме.</p>
+    </div>
+    <p>Политика конфиденциальности Sentry: <a href="https://sentry.io/privacy/" style="color:var(--cyan)">sentry.io/privacy</a></p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2>5. Подписки и серверы</h2>
+    <p>SnowVPN работает с конфигурационными файлами (подписками), которые вы добавляете самостоятельно. Мы не контролируем и не несём ответственности за серверы третьих сторон, к которым вы подключаетесь через добавленные подписки.</p>
+    <p>При использовании официальных серверов SnowVPN мы придерживаемся политики отсутствия логов трафика.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2>6. Хранение данных</h2>
+    <p>Настройки приложения (выбранный сервер, параметры подключения) хранятся локально на вашем устройстве в SharedPreferences. Эти данные не передаются нам и не покидают устройство.</p>
+    <p>Анонимные отчёты об ошибках хранятся на серверах Sentry не более 90 дней.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2>7. Дети</h2>
+    <p>SnowVPN не предназначен для детей младше 13 лет. Мы не собираем намеренно данные от лиц, не достигших этого возраста.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2>8. Изменения политики</h2>
+    <p>Мы можем обновлять данную политику конфиденциальности. При существенных изменениях мы уведомим пользователей через Telegram-канал или в самом приложении. Дата последнего обновления всегда указана вверху страницы.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <h2>9. Применимое право</h2>
+    <p>Настоящая политика регулируется законодательством Российской Федерации. Все споры решаются в соответствии с действующим законодательством.</p>
+  </div>
+
+  <!-- Контакт -->
+  <div class="contact-box">
+    <h3>Вопросы о конфиденциальности?</h3>
+    <p>Свяжитесь с нами через Telegram — ответим на любые вопросы</p>
+    <a class="contact-link" href="https://t.me/SnowfallVPN_bot">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+      @SnowfallVPN_bot
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
