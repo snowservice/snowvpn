@@ -30,8 +30,8 @@
 
 | Платформа | Скачать |
 |:---------:|:-------:|
-| 🖥️ **Windows** | [**Скачать .exe →**](https://github.com/snowservice/snowvpn/releases/latest) |
-| 🤖 **Android** | [**Скачать .apk →**](https://github.com/snowservice/snowvpn/releases/latest) |
+| 🖥️ **Windows** | [**Скачать .exe →**](https://github.com/snowservice/snowvpn/releases?q=windows) |
+| 🤖 **Android** | [**Скачать .apk →**](https://github.com/snowservice/snowvpn/releases?q=android) |
 
 </div>
 
